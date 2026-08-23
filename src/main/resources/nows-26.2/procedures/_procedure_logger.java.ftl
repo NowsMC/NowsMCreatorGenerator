@@ -1,0 +1,1 @@
+${JavaModName}Procedure.log()

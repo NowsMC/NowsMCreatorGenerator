@@ -63,6 +63,10 @@ language_file:
   root_folder: "@MODASSETSROOT/lang/"
   langfile_name: "@langname.json"
 
+localizationkeys:
+  - key: itemGroup.@modid.main
+    value: "@modname"
+
 tags:
   template: json/tags.json.ftl
   name: "@RESROOT/data/@namespace/tags/@folder/@name.json"
