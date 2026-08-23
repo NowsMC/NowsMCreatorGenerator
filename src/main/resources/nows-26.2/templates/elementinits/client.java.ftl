@@ -3,7 +3,7 @@ package ${package}.init;
 import space.nows.mc.api.MinecraftApi;
 import space.nows.mc.api.client.player.PlayerApi;
 import space.nows.mc.api.client.ui.Ui;
-import space.nows.mc.api.registry.ItemStackSpec;
+import space.nows.mc.api.registry.McItemStack;
 import space.nows.mc.api.text.McText;
 import space.nows.platform.api.NowsContext;
 
@@ -26,7 +26,7 @@ public final class ${JavaModName}Client {
         PlayerApi player = MinecraftApi.players(context);
         player.current().ifPresent(ignored -> {
             player.sendSystemMessage(McText.literal("${settings.getModName()} loaded."));
-            player.addItem(ItemStackSpec.of("minecraft:stone"));
+            player.addItem(McItemStack.of("minecraft:stone"));
         });
     }
 }

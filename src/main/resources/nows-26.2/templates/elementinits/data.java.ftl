@@ -2,11 +2,11 @@ package ${package}.init;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import space.nows.mc.api.MinecraftApi;
 import space.nows.mc.api.datagen.DataGen;
 import space.nows.mc.api.datapack.DataPacks;
+import space.nows.mc.api.registry.TagSpec;
 import space.nows.platform.api.NowsContext;
 
 public final class ${JavaModName}Data {
@@ -20,10 +20,7 @@ public final class ${JavaModName}Data {
     public static void writeGeneratedData(NowsContext context) {
         DataGen dataGen = MinecraftApi.dataGen(context);
         try {
-            dataGen.writeJson(dataGen.itemTagPath("${modid}:generated_items"), Map.of(
-                    "replace", false,
-                    "values", List.of()
-            ));
+            dataGen.writeTag(TagSpec.items("${modid}:generated_items", List.of()));
         } catch (IOException exception) {
             throw new IllegalStateException("Unable to write generated ${modid} data", exception);
         }

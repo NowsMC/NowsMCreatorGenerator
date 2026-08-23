@@ -1,8 +1,10 @@
 package ${package}.init;
 
 import space.nows.mc.api.registry.BlockMaterial;
+import space.nows.mc.api.registry.BlockSound;
 import space.nows.mc.api.registry.BlockSpec;
 import space.nows.mc.api.registry.ItemSpec;
+import space.nows.mc.api.registry.LightSpec;
 import space.nows.mc.api.registry.RegistryApi;
 
 public final class ${JavaModName}Blocks {
@@ -17,7 +19,9 @@ public final class ${JavaModName}Blocks {
 <#list blocks as block>
         registries.registerBlockWithItem(BlockSpec.builder(${block.getModElement().getRegistryNameUpper()})
                 .material(BlockMaterial.${blockMaterial(block)})
+                .sound(BlockSound.${blockSound(block)})
                 .strength(${block.hardness!1.0}F, ${block.resistance!1.0}F)
+                .light(LightSpec.emission(${block.luminance!0}))
 <#if block.requiresCorrectTool!false>
                 .requiresCorrectTool()
 </#if>
@@ -48,6 +52,27 @@ public final class ${JavaModName}Blocks {
         <#return "GLASS">
     <#elseif sound?contains("GRAVEL") || sound?contains("SAND") || sound?contains("DIRT")>
         <#return "DIRT">
+    <#else>
+        <#return "STONE">
+    </#if>
+</#function>
+
+<#function blockSound block>
+    <#assign sound = (block.soundOnStep!"STONE")?upper_case>
+    <#if sound?contains("WOOD")>
+        <#return "WOOD">
+    <#elseif sound?contains("METAL")>
+        <#return "METAL">
+    <#elseif sound?contains("GLASS")>
+        <#return "GLASS">
+    <#elseif sound?contains("GRAVEL")>
+        <#return "GRAVEL">
+    <#elseif sound?contains("SAND")>
+        <#return "SAND">
+    <#elseif sound?contains("GRASS")>
+        <#return "GRASS">
+    <#elseif sound?contains("WOOL")>
+        <#return "WOOL">
     <#else>
         <#return "STONE">
     </#if>

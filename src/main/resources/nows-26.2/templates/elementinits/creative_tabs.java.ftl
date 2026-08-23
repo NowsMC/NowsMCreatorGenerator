@@ -1,6 +1,6 @@
 package ${package}.init;
 
-import space.nows.mc.api.registry.ItemStackSpec;
+import space.nows.mc.api.registry.McItemStack;
 import space.nows.mc.api.registry.RegistryApi;
 import space.nows.mc.api.text.TextApi;
 
@@ -14,16 +14,16 @@ public final class ${JavaModName}CreativeTabs {
         registries.registerCreativeTab(
                 MAIN,
                 text.translatable("itemGroup.${modid}.main"),
-                () -> registries.itemStack(ItemStackSpec.of(<@tabIcon/>)),
+                () -> registries.itemStack(McItemStack.of(<@tabIcon/>)),
                 (parameters, output) -> {
 <#if w.hasElementsOfType("block")>
 <#list blocks as block>
-                    output.accept(registries.itemStack(ItemStackSpec.of(${JavaModName}Blocks.${block.getModElement().getRegistryNameUpper()})));
+                    output.accept(registries.itemStack(McItemStack.of(${JavaModName}Blocks.${block.getModElement().getRegistryNameUpper()})));
 </#list>
 </#if>
 <#if w.hasElementsOfType("item")>
 <#list items as item>
-                    output.accept(registries.itemStack(ItemStackSpec.of(${JavaModName}Items.${item.getModElement().getRegistryNameUpper()})));
+                    output.accept(registries.itemStack(McItemStack.of(${JavaModName}Items.${item.getModElement().getRegistryNameUpper()})));
 </#list>
 </#if>
                 });
