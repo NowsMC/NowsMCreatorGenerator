@@ -1,0 +1,9 @@
+{
+  "generator-nows-26.2": {
+    "latest": "2026.2-0.1.0",
+    "changes": [
+      "2026.2-0.1.0",
+      "Initial Nows base workspace generator for Minecraft 26.2"
+    ]
+  }
+}

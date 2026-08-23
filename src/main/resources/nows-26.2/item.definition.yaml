@@ -1,0 +1,8 @@
+templates:
+  - template: json/item_model.json.ftl
+    writer: json
+    name: "@MODASSETSROOT/models/item/@registryname.json"
+
+localizationkeys:
+  - key: item.@modid.@registryname
+    mapto: name

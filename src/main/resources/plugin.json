@@ -1,0 +1,13 @@
+{
+  "id": "generator-nows-${minecraftVersion}",
+  "weight": 12,
+  "supportedversions": [${supportedVersion}, 202600299999],
+  "info": {
+    "name": "Nows ${minecraftVersion} Generator",
+    "version": "${pluginVersion}",
+    "description": "A Nows generator for MCreator",
+    "author": "NowsMC",
+    "credits": "Built from the Nows example workspace and the public MCreator generator structure.",
+    "updateJSONURL": "https://raw.githubusercontent.com/NowsMC/NowsMCreatorGenerator/refs/heads/${minecraftVersion}/update.json"
+  }
+}

@@ -1,0 +1,16 @@
+templates:
+  - template: json/block_model.json.ftl
+    writer: json
+    name: "@MODASSETSROOT/models/block/@registryname.json"
+  - template: json/block_item_model.json.ftl
+    writer: json
+    name: "@MODASSETSROOT/models/item/@registryname.json"
+  - template: json/blockstate.json.ftl
+    writer: json
+    name: "@MODASSETSROOT/blockstates/@registryname.json"
+
+localizationkeys:
+  - key: block.@modid.@registryname
+    mapto: name
+  - key: item.@modid.@registryname
+    mapto: name

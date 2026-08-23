@@ -1,0 +1,54 @@
+name: Nows for @minecraft (@buildfileversion)
+status: alpha
+buildfileversion: 0.8.0
+subversion: 1
+
+gradle:
+  sync_task: build
+  run_client: build
+  run_server: build
+  export_file: "build/libs/modid-1.0.0.jar"
+
+import_formatter:
+  duplicates_whitelist:
+    - java.util
+  priority_imports:
+    ModInitializer: space.nows.platform.api
+    NowsContext: space.nows.platform.api
+    NowsLifecycleListener: space.nows.integration.geb
+    NowsEntrypointsCompletedEvent: space.nows.integration.geb.event
+    NowsLog: space.nows.integration.logging
+    Logger: reactor.util
+
+source_root: "@WORKSPACEROOT/src/main/java"
+res_root: "@WORKSPACEROOT/src/main/resources"
+mod_assets_root: "@RESROOT/assets/@modid"
+mod_data_root: "@RESROOT/data/@modid"
+
+base_templates:
+  - template: elementinits/content.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameContent.java"
+  - template: elementinits/creative_tabs.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameCreativeTabs.java"
+    condition_any:
+      - "${w.hasElementsOfType('item')}"
+      - "${w.hasElementsOfType('block')}"
+  - template: modbase/mod.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/@JavaModName.java"
+  - template: modbase/lifecycle_listener.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/@JavaModNameLifecycleListener.java"
+  - template: modbase/nows.mod.kdl.ftl
+    writer: file
+    name: "@RESROOT/nows.mod.kdl"
+  - template: modbase/mixin.json.ftl
+    writer: json
+    name: "@RESROOT/@modid.mixins.json"
+
+language_file:
+  format: json
+  root_folder: "@MODASSETSROOT/lang/"
+  langfile_name: "@langname.json"
+
+tags:
+  template: json/tags.json.ftl
+  name: "@RESROOT/data/@namespace/tags/@folder/@name.json"
