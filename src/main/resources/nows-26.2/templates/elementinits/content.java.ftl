@@ -25,5 +25,12 @@ public final class ${JavaModName}Content {
 <#if w.hasElementsOfType("command")>
         ${JavaModName}Commands.register(context);
 </#if>
+        ${JavaModName}Data.register(context);
+        ${JavaModName}Events.register(context);
+        ${JavaModName}Keybinds.register(context);
+        ${JavaModName}Client.register(context);
+        ${JavaModName}Config.register(context);
+        ${JavaModName}Nbt.register(context);
+        ${JavaModName}Recipes.register(context);
     }
 }

@@ -28,6 +28,20 @@ mod_data_root: "@RESROOT/data/@modid"
 base_templates:
   - template: elementinits/content.java.ftl
     name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameContent.java"
+  - template: elementinits/data.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameData.java"
+  - template: elementinits/events.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameEvents.java"
+  - template: elementinits/keybinds.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameKeybinds.java"
+  - template: elementinits/client.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameClient.java"
+  - template: elementinits/config.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameConfig.java"
+  - template: elementinits/nbt.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameNbt.java"
+  - template: elementinits/recipes.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameRecipes.java"
   - template: elementinits/creative_tabs.java.ftl
     name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameCreativeTabs.java"
     condition_any:
