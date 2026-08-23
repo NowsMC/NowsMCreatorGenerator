@@ -1,6 +1,5 @@
 package ${package}.init;
 
-import space.nows.mc.api.registry.BlockEntry;
 import space.nows.mc.api.registry.BlockMaterial;
 import space.nows.mc.api.registry.BlockSpec;
 import space.nows.mc.api.registry.ItemSpec;
@@ -8,7 +7,7 @@ import space.nows.mc.api.registry.RegistryApi;
 
 public final class ${JavaModName}Blocks {
 <#list blocks as block>
-    public static BlockEntry ${block.getModElement().getRegistryNameUpper()};
+    public static final String ${block.getModElement().getRegistryNameUpper()} = "${modid}:${block.getModElement().getRegistryName()}";
 </#list>
 
     private ${JavaModName}Blocks() {
@@ -16,7 +15,7 @@ public final class ${JavaModName}Blocks {
 
     public static void register(RegistryApi registries) {
 <#list blocks as block>
-        ${block.getModElement().getRegistryNameUpper()} = registries.registerBlockWithItem(BlockSpec.builder("${modid}:${block.getModElement().getRegistryName()}")
+        registries.registerBlockWithItem(BlockSpec.builder(${block.getModElement().getRegistryNameUpper()})
                 .material(BlockMaterial.${blockMaterial(block)})
                 .strength(${block.hardness!1.0}F, ${block.resistance!1.0}F)
 <#if block.requiresCorrectTool!false>
@@ -25,7 +24,7 @@ public final class ${JavaModName}Blocks {
 <#if block.hasTransparency!false>
                 .noOcclusion()
 </#if>
-                .item(ItemSpec.builder("${modid}:${block.getModElement().getRegistryName()}")
+                .item(ItemSpec.builder(${block.getModElement().getRegistryNameUpper()})
                         .maxStackSize(${block.maxStackSize!64})
 <#if block.immuneToFire!false>
                         .fireResistant()

@@ -17,6 +17,8 @@ The first generator target creates the same Nows base workspace shape as `Test/m
 - simple `CommandSpec` command registration templates
 - basic item/block model and blockstate JSON templates
 
+Generated Java templates prefer Nows-owned stable values (`ItemSpec`, `BlockSpec`, `ItemStackSpec`, `CommandSpec`) and stable service entry points (`MinecraftApi`, `RegistryApi`, `TextApi`) over direct Minecraft classes. Direct Minecraft code should be treated as a signal that the Nows stable API needs to grow.
+
 ## Branches
 
 - `26.2` - generator work for Minecraft `26.2`.
