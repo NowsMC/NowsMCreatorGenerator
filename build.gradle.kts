@@ -9,7 +9,6 @@ val mcreatorVersion = providers.gradleProperty("mcreator_version").orElse("2026.
 val minecraftVersion = providers.gradleProperty("minecraft_version").orElse("26.2")
 val pluginVersion = providers.gradleProperty("plugin_version").orElse("2026.2-0.1.0")
 val nowsVersion = providers.gradleProperty("nows_version").orElse("0.9.1")
-
 base {
     archivesName.set("nows-mcreator-generator")
 }
@@ -29,6 +28,19 @@ tasks.withType<AbstractArchiveTask>().configureEach {
 }
 
 tasks.processResources {
+    // MCreator 2026.2 derives GeneratorFlavor from the first segment of the
+    // generator resource directory name. NOWS is not a built-in flavor, so
+    // expose Nows through the compatible FABRIC flavor while keeping the
+    // source directory named nows-<minecraftVersion>.
+    val sourceGeneratorPath = "nows-${minecraftVersion.get()}/"
+    val mcreatorGeneratorPath = "fabric-${minecraftVersion.get()}-nows/"
+
+    eachFile {
+        if (path.startsWith(sourceGeneratorPath)) {
+            path = mcreatorGeneratorPath + path.removePrefix(sourceGeneratorPath)
+        }
+    }
+
     filesMatching("plugin.json") {
         expand(
             "mcreatorVersion" to mcreatorVersion.get(),
@@ -42,13 +54,11 @@ tasks.processResources {
 tasks.jar {
     archiveFileName.set("generator-nows-${minecraftVersion.get()}-${mcreatorVersion.get()}.zip")
 }
-
 tasks.register<Copy>("copyPlugin") {
     dependsOn(tasks.jar)
     from(tasks.jar.flatMap { it.archiveFile })
     into(layout.buildDirectory)
 }
-
 tasks.register<Zip>("exportPlugin") {
     group = "mcreator_plugins"
     description = "Builds the Nows MCreator generator plugin ZIP."
