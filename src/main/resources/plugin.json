@@ -2,6 +2,7 @@
   "id": "generator-nows-${minecraftVersion}",
   "weight": 12,
   "supportedversions": [${supportedVersion}, 202600299999],
+  "javaplugin": "space.nows.mcreator.NowsMCreatorPlugin",
   "info": {
     "name": "Nows ${minecraftVersion} Generator",
     "version": "${pluginVersion}",
