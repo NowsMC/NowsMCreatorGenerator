@@ -23,6 +23,9 @@ res_root: "@WORKSPACEROOT/src/main/resources"
 mod_assets_root: "@RESROOT/assets/@modid"
 mod_data_root: "@RESROOT/data/@modid"
 base_templates:
+  - template: modbase/gradle.properties.ftl
+    writer: file
+    name: "@WORKSPACEROOT/gradle.properties"
   - template: elementinits/content.java.ftl
     name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameContent.java"
   - template: elementinits/data.java.ftl

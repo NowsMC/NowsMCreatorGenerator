@@ -3,4 +3,4 @@ plugins {
 }
 
 group = "${package}"
-version = providers.gradleProperty("mod_version").get()
+version = providers.gradleProperty("mod_version").orElse("${settings.getCleanVersion()}").get()

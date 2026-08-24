@@ -1,5 +1,11 @@
 # Change
 
+## 2026.2-0.2.1
+
+- Fixed new Nows workspaces failing their first Gradle synchronization because `mod_version` was unavailable.
+- Added an explicit generated `gradle.properties` base template so Nows project metadata is written reliably from MCreator workspace settings.
+- Added a safe version fallback in the Nows `build.gradle` workspace template while keeping the `space.nows.gradle` build setup unchanged.
+
 ## 2026.2-0.2.0
 
 - Added a dedicated **Nows mod** workspace entry through the bundled Java integration; users install only one plugin ZIP.

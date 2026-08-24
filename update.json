@@ -1,7 +1,9 @@
 {
   "generator-nows-26.2": {
-    "latest": "2026.2-0.2.0",
+    "latest": "2026.2-0.2.1",
     "changes": [
+      "2026.2-0.2.1",
+      "Fix missing generated Gradle mod properties during initial workspace synchronization",
       "2026.2-0.2.0",
       "Dedicated Nows workspace type with bundled Java integration and Nows icon",
       "2026.2-0.1.0",
