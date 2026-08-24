@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+      - "[0-9]*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and release generator
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+
+      - name: Resolve release version
+        id: version
+        shell: bash
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          version="${tag#v}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Extract release notes
+        shell: bash
+        run: |
+          version="${{ steps.version.outputs.version }}"
+          awk -v version="$version" '
+            $0 == "## " version { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+          ' CHANGE.md | sed '/^[[:space:]]*$/d' > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "CHANGE.md does not contain release notes for $version" >&2
+            exit 1
+          fi
+
+      - name: Build plugin
+        run: ./gradlew exportPlugin -Pplugin_version=${{ steps.version.outputs.version }}
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${{ steps.version.outputs.version }}"
+          gh release create "${{ steps.version.outputs.tag }}" \
+            build/distributions/*.zip \
+            --title "$version" \
+            --notes-file release-notes.md
