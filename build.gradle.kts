@@ -8,7 +8,7 @@ version = providers.gradleProperty("plugin_version").orElse("development").get()
 val mcreatorVersion = providers.gradleProperty("mcreator_version").orElse("2026.2")
 val minecraftVersion = providers.gradleProperty("minecraft_version").orElse("26.2")
 val pluginVersion = providers.gradleProperty("plugin_version").orElse("2026.2-0.1.0")
-val nowsVersion = providers.gradleProperty("nows_version").orElse("0.9.0")
+val nowsVersion = providers.gradleProperty("nows_version").orElse("0.9.1")
 
 base {
     archivesName.set("nows-mcreator-generator")

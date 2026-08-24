@@ -18,15 +18,15 @@ public final class ${JavaModName}Recipes {
 <#if w.hasElementsOfType("block")>
 <#list blocks as block>
 <#if block?index == 0>
-        recipes.registerCatalyst("${modid}:main", MinecraftApi.registries(context)
-                .itemStack(McItemStack.of(${JavaModName}Blocks.${block.getModElement().getRegistryNameUpper()})));
+        recipes.registerCatalyst("${modid}:main",
+                McItemStack.of(${JavaModName}Blocks.${block.getModElement().getRegistryNameUpper()}));
 </#if>
 </#list>
 <#elseif w.hasElementsOfType("item")>
 <#list items as item>
 <#if item?index == 0>
-        recipes.registerCatalyst("${modid}:main", MinecraftApi.registries(context)
-                .itemStack(McItemStack.of(${JavaModName}Items.${item.getModElement().getRegistryNameUpper()})));
+        recipes.registerCatalyst("${modid}:main",
+                McItemStack.of(${JavaModName}Items.${item.getModElement().getRegistryNameUpper()}));
 </#if>
 </#list>
 </#if>
