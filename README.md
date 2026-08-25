@@ -4,6 +4,15 @@ MCreator generator plugin for Nows.
 
 This branch targets Minecraft `26.2` and MCreator `2026.2`.
 
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/e6612a13-b819-4e31-9457-26eb9fd48971"
+    alt="image"
+    width="50%"
+  />
+</p>
+
+
 ## Installation
 
 1. Open **Preferences -> Manage plugins** in MCreator.
