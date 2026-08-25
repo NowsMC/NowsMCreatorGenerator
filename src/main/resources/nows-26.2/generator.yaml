@@ -22,6 +22,22 @@ source_root: "@WORKSPACEROOT/src/main/java"
 res_root: "@WORKSPACEROOT/src/main/resources"
 mod_assets_root: "@RESROOT/assets/@modid"
 mod_data_root: "@RESROOT/data/@modid"
+
+sounds_dir: "@MODASSETSROOT/sounds"
+structures_dir: "@MODDATAROOT/structure"
+block_textures_dir: "@MODASSETSROOT/textures/block"
+item_textures_dir: "@MODASSETSROOT/textures/item"
+entity_textures_dir: "@MODASSETSROOT/textures/entities"
+effect_textures_dir: "@MODASSETSROOT/textures/mob_effect"
+particle_textures_dir: "@MODASSETSROOT/textures/particle"
+screen_textures_dir: "@MODASSETSROOT/textures/screens"
+armor_textures_dir: "@MODASSETSROOT/textures/models/armor"
+other_textures_dir: "@MODASSETSROOT/textures"
+
+vanilla_resources_jar: "minecraft-patched-.*.jar"
+vanilla_block_textures_dir: "assets/minecraft/textures/block"
+vanilla_item_textures_dir: "assets/minecraft/textures/item"
+
 base_templates:
   - template: modbase/gradle.properties.ftl
     writer: file
@@ -61,6 +77,17 @@ language_file:
   format: json
   root_folder: "@MODASSETSROOT/lang/"
   langfile_name: "@langname.json"
+
+resources_setup_tasks:
+  - task: copy_file
+    from: "@MODASSETSROOT/textures/@modpicture.png"
+    to: "@RESROOT/logo.png"
+  - task: copy_models
+    type: OBJ_referencetextures
+    to: "@MODASSETSROOT/models/item"
+  - task: copy_models
+    type: JSON_noinlinetextures
+    to: "@MODASSETSROOT/models/custom"
 
 localizationkeys:
   - key: itemGroup.@modid.main

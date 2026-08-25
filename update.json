@@ -1,7 +1,9 @@
 {
   "generator-nows-26.2": {
-    "latest": "2026.2-0.2.1",
+    "latest": "2026.2-0.2.2",
     "changes": [
+      "2026.2-0.2.2",
+      "Add resource folder mappings for block/item textures and other asset categories",
       "2026.2-0.2.1",
       "Fix missing generated Gradle mod properties during initial workspace synchronization",
       "2026.2-0.2.0",

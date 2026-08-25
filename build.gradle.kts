@@ -39,6 +39,8 @@ tasks.withType<AbstractArchiveTask>().configureEach {
     isReproducibleFileOrder = true
 }
 tasks.processResources {
+    includeEmptyDirs = false
+
     // MCreator 2026.2 derives GeneratorFlavor from the first segment of the
     // generator resource directory. NOWS is not a built-in flavor, so the
     // generator remains FABRIC-compatible internally. NowsMCreatorPlugin adds
