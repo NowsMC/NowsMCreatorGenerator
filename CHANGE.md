@@ -1,5 +1,11 @@
 # Change
 
+## 2026.2-0.2.2
+
+- Added Nows generator resource folder mappings for block textures, item textures, sounds, models and other asset categories so MCreator can import and copy workspace resources correctly.
+- Added resource setup tasks for generated mod icons and custom model texture references.
+- Removed duplicate empty source generator directories from exported plugin ZIPs.
+
 ## 2026.2-0.2.1
 
 - Fixed new Nows workspaces failing their first Gradle synchronization because `mod_version` was unavailable.
