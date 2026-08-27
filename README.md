@@ -28,8 +28,9 @@ The generator resources and the small Java UI integration are shipped in the **s
 - Creates a Nows Gradle workspace.
 - Writes `gradle.properties`, `nows.mod.kdl`, and an empty mixin config.
 - Generates the main Nows entrypoint and lifecycle listener.
-- Provides early templates for simple items, blocks, creative tabs, commands, and basic model JSON.
+- Provides early templates for simple items, blocks, creative tabs, commands, advancement/function/loot-table data, and basic model JSON.
 - Adds small helper classes for Nows data, events, keybinds, client UI/player, config, NBT, and recipe viewer APIs.
+- Adds generated resource path helpers and registry helpers for sound, mob effect, potion, attribute, particle, fluid, bucket, and entity registrations.
 - Includes first-pass procedure and recipe JSON templates for MCreator block-based workflows.
 - Adds a dedicated **Nows mod** workspace type in MCreator 2026.2 while retaining an internal compatibility flavor because MCreator does not currently expose custom `GeneratorFlavor` registration.
 

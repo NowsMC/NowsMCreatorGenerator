@@ -1,7 +1,9 @@
 {
   "generator-nows-26.2": {
-    "latest": "2026.2-0.2.2",
+    "latest": "2026.2-0.2.3",
     "changes": [
+      "2026.2-0.2.3",
+      "Add Java registry/resource helpers plus advancement, function, keybind and loot-table generator coverage",
       "2026.2-0.2.2",
       "Add resource folder mappings for block/item textures and other asset categories",
       "2026.2-0.2.1",

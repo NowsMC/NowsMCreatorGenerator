@@ -1,5 +1,11 @@
 # Change
 
+## 2026.2-0.2.3
+
+- Added Nows-owned Java helper templates for resource IDs and broader registry entry points.
+- Added base `sounds.json` generation and extra resource folder mappings for models, blockstates, advancements, functions, loot tables, recipes and tags.
+- Added first-pass advancement, function, keybind localization and loot table generator definitions.
+
 ## 2026.2-0.2.2
 
 - Added Nows generator resource folder mappings for block textures, item textures, sounds, models and other asset categories so MCreator can import and copy workspace resources correctly.
