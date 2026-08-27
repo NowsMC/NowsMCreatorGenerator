@@ -35,5 +35,6 @@ public final class ${JavaModName}Content {
         ${JavaModName}Config.register(context);
         ${JavaModName}Nbt.register(context);
         ${JavaModName}Recipes.register(context);
+        ${JavaModName}RegistryExtras.register(registries);
     }
 }

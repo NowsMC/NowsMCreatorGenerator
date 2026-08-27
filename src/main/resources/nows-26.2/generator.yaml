@@ -33,6 +33,18 @@ particle_textures_dir: "@MODASSETSROOT/textures/particle"
 screen_textures_dir: "@MODASSETSROOT/textures/screens"
 armor_textures_dir: "@MODASSETSROOT/textures/models/armor"
 other_textures_dir: "@MODASSETSROOT/textures"
+block_models_dir: "@MODASSETSROOT/models/block"
+item_models_dir: "@MODASSETSROOT/models/item"
+json_models_dir: "@MODASSETSROOT/models/custom"
+java_models_dir: "@SRCROOT/@BASEPACKAGEPATH/client/model"
+blockstates_dir: "@MODASSETSROOT/blockstates"
+animations_dir: "@MODASSETSROOT/animations"
+geo_models_dir: "@MODASSETSROOT/geo"
+loot_tables_dir: "@MODDATAROOT/loot_table"
+advancements_dir: "@MODDATAROOT/advancement"
+functions_dir: "@MODDATAROOT/function"
+recipes_dir: "@MODDATAROOT/recipe"
+tags_dir: "@MODDATAROOT/tags"
 
 vanilla_resources_jar: "minecraft-patched-.*.jar"
 vanilla_block_textures_dir: "assets/minecraft/textures/block"
@@ -58,6 +70,10 @@ base_templates:
     name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameNbt.java"
   - template: elementinits/recipes.java.ftl
     name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameRecipes.java"
+  - template: elementinits/resources.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameResources.java"
+  - template: elementinits/registry_extras.java.ftl
+    name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameRegistryExtras.java"
   - template: elementinits/creative_tabs.java.ftl
     name: "@SRCROOT/@BASEPACKAGEPATH/init/@JavaModNameCreativeTabs.java"
     condition_any:
@@ -73,6 +89,9 @@ base_templates:
   - template: modbase/mixin.json.ftl
     writer: json
     name: "@RESROOT/@modid.mixins.json"
+  - template: json/sounds.json.ftl
+    writer: json
+    name: "@MODASSETSROOT/sounds.json"
 language_file:
   format: json
   root_folder: "@MODASSETSROOT/lang/"
