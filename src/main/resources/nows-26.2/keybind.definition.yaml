@@ -1,0 +1,5 @@
+localizationkeys:
+  - key: key.@modid.@registryname
+    mapto: name
+  - key: key.categories.@modid
+    value: "@modname"

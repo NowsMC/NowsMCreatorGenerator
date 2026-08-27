@@ -1,0 +1,10 @@
+templates:
+  - template: json/advancement.json.ftl
+    writer: json
+    name: "@MODDATAROOT/advancement/@registryname.json"
+
+localizationkeys:
+  - key: advancements.@modid.@registryname.title
+    mapto: name
+  - key: advancements.@modid.@registryname.description
+    value: "@modname advancement"

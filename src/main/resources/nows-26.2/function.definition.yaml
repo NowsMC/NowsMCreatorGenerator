@@ -1,0 +1,4 @@
+templates:
+  - template: json/function.mcfunction.ftl
+    writer: file
+    name: "@MODDATAROOT/function/@registryname.mcfunction"

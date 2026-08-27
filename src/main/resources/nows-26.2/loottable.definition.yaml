@@ -1,0 +1,4 @@
+templates:
+  - template: json/loot_table.json.ftl
+    writer: json
+    name: "@MODDATAROOT/loot_table/@registryname.json"
