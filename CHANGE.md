@@ -1,5 +1,10 @@
 # Change
 
+## 1.0.0
+
+- The generator now has its own version, independent of the Nows version and of the MCreator version. Earlier releases used `<mcreator version>-<generator version>`.
+- Generated workspaces now use Nows 0.11.0. They used 0.9.3 before.
+
 ## 2026.2-0.2.3
 
 - Added Nows-owned Java helper templates for resource IDs and broader registry entry points.
